@@ -1,6 +1,5 @@
 package com.encontraemprestimo.api.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -58,10 +57,5 @@ public class Plataforma {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "reclame_aqui_id", referencedColumnName = "id")
     private PlataformaReclameAqui reclameAqui;
-
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "plataforma_id")
-    private List<Avaliacao> avaliacoes;
 
 }

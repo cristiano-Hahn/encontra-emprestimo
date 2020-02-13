@@ -1,6 +1,7 @@
 package com.encontraemprestimo.api.domain.model;
 
 import com.encontraemprestimo.api.domain.model.enums.AvaliacaoRecomenda;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -31,5 +32,10 @@ public class Avaliacao {
     @Enumerated(EnumType.STRING)
     @Column(name = "recomenda", nullable = false)
     private AvaliacaoRecomenda recomenda;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "plataforma_id", referencedColumnName = "id", nullable = false)
+    private Plataforma plataforma;
 
 }
