@@ -85,7 +85,7 @@ const PlataformasTable = props => {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Rating value={plataforma.notaGeral} />
+                      <Rating readOnly value={plataforma.notaGeral} />
                     </TableCell>
                     <TableCell>
                     <Link href={plataforma.endereco_online} >
