@@ -5,7 +5,8 @@ import { RouteWithLayout } from './components';
 import { Main as MainLayout } from './layouts';
 
 import UserListView from './views/UserList'
-import PlataformaListView from './views/PlataformaList'
+import PlataformaDetalhes from 'views/PlataformaDetalhes';
+//import PlataformaListView from './views/PlataformaList'
 
 const Routes = () => {
   return (
@@ -16,10 +17,16 @@ const Routes = () => {
         to="/plataformas"
       />
       <RouteWithLayout
-        component={PlataformaListView}
+        component={UserListView}
         exact
         layout={MainLayout}
         path="/plataformas"
+      />
+      <RouteWithLayout
+        component={PlataformaDetalhes}
+        exact
+        layout={MainLayout}
+        path="/plataformas/:plataformaId/detalhes"
       />
       <Redirect to="/not-found" />
     </Switch>

@@ -26,7 +26,9 @@
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
+    "@material-ui/lab": "^4.0.0-alpha.42",
     "@material-ui/styles": "^4.2.1",
+    "axios": "^0.19.2",
     "clsx": "^1.0.4",
     "history": "^4.9.0",
     "moment": "^2.24.0",

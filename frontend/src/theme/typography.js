@@ -3,8 +3,8 @@ import palette from './palette';
 export default {
   h1: {
     color: palette.text.primary,
-    fontWeight: 500,
-    fontSize: '35px',
+    fontWeight: 300,
+    fontSize: '40px',
     letterSpacing: '-0.24px',
     lineHeight: '40px'
   },
@@ -17,7 +17,7 @@ export default {
   },
   h3: {
     color: palette.text.primary,
-    fontWeight: 500,
+    fontWeight: 400,
     fontSize: '24px',
     letterSpacing: '-0.06px',
     lineHeight: '28px'
@@ -38,7 +38,7 @@ export default {
   },
   h6: {
     color: palette.text.primary,
-    fontWeight: 500,
+    fontWeight: 400,
     fontSize: '14px',
     letterSpacing: '-0.05px',
     lineHeight: '20px'
