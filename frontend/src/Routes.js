@@ -6,7 +6,7 @@ import { Main as MainLayout } from './layouts';
 
 import UserListView from './views/UserList'
 import PlataformaDetalhes from 'views/PlataformaDetalhes';
-//import PlataformaListView from './views/PlataformaList'
+import PlataformaListView from './views/PlataformaList'
 
 const Routes = () => {
   return (
@@ -17,7 +17,7 @@ const Routes = () => {
         to="/plataformas"
       />
       <RouteWithLayout
-        component={UserListView}
+        component={PlataformaListView}
         exact
         layout={MainLayout}
         path="/plataformas"
