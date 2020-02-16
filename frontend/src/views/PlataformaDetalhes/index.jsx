@@ -81,6 +81,15 @@ export default function PlataformaDetalhes (props) {
                     </Grid>
                   </Box>
                 </Link>
+                <Box marginLeft={4} marginTop={2}>
+                  <Grid item container alignItems='flex-end' >
+                    <Grid item>
+                    <Link href={dadosPlataforma && dadosPlataforma.enderecoOnline} target="_blank" rel="noopener" rel="noreferrer">
+                      <Button variant='contained' color='primary'>Visitar o site</Button>
+                    </Link>
+                    </Grid>
+                  </Grid>
+                </Box>
               </Grid>
             </Grid>
           </Grid>
