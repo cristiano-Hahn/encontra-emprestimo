@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/styles';
-import { useMediaQuery } from '@material-ui/core';
+import { useMediaQuery, Grid } from '@material-ui/core';
 
 import {Topbar, Footer } from './components';
 
@@ -15,10 +15,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   shiftContent: {
-    paddingLeft: 240
   },
   content: {
-    height: '100%'
+    height: '100%',
+    maxWidth: '1200px'
   }
 }));
 
@@ -39,10 +39,12 @@ const Main = props => {
       })}
     >
       <Topbar/>
-      <main className={classes.content}>
-        {children}
-        <Footer />
-      </main>
+      <Grid container justify='center' alignItems='center'>
+        <main className={classes.content}>
+          {children}
+          <Footer />
+        </main>
+      </Grid>
     </div>
   );
 };
