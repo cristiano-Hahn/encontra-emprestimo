@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @Table(name = "avaliacao")
@@ -24,6 +25,11 @@ public class Avaliacao {
     @NotNull
     @Column(name = "nota", nullable = false)
     private Float nota;
+
+    @NotNull
+    @Temporal(TemporalType.DATE)
+    @Column(name = "data", nullable = false)
+    private Date data;
 
     @Column(name = "comentario", length = 1000)
     private String comentario;

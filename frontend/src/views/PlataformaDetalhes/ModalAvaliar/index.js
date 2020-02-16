@@ -114,7 +114,7 @@ const dadosPlataforma = props.dadosPlataforma || {}
         <Button onClick={props.handleClose} color="default" variant="contained">
             Voltar
           </Button>
-          <Button onClick={realizarAvaliacao} color="primary" disabled={dadosAvaliacao.nota == 0} variant="contained">
+          <Button onClick={realizarAvaliacao} color="primary" disabled={dadosAvaliacao.nota === 0} variant="contained">
             Realizar avaliação
           </Button>
         </DialogActions>

@@ -53,6 +53,9 @@ public class Plataforma {
 
     @Column(name = "numero_avaliacoes", nullable = false)
     private Integer numeroAvaliacoes;
+    
+    @Column(name = "imagem", nullable = false, length = 100000)
+    private String imagem;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "reclame_aqui_id", referencedColumnName = "id")

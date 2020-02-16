@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from '@material-ui/core'
+import { Button, Box, Grid, Typography, Link } from '@material-ui/core'
 import ModalAvaliacoes from './ModalAvaliacoes'
 import {
   useParams
@@ -7,13 +7,14 @@ import {
 import Axios from 'axios';
 import ModalAvaliar from './ModalAvaliar';
 import { API_URL } from 'common/api';
+import Rating from '@material-ui/lab/Rating';
 
 
 export default function PlataformaDetalhes (props) {
 
     const { plataformaId } = useParams();
     const [modalAvaliacoesVisible, setModalAvaliacoesVisible] = useState(false)
-    const [modalAvaliarVisible, setModalAvaliarVisible] = useState(true)
+    const [modalAvaliarVisible, setModalAvaliarVisible] = useState(false)
     const [dadosPlataforma, setDadosPlataforma] = useState(null);
     const [avaliacoes, setAvaliacoes] = useState(null)
 
@@ -52,6 +53,38 @@ export default function PlataformaDetalhes (props) {
           handleClose={handleCloseModalAvaliar}
           dadosPlataforma={dadosPlataforma}
         />
+
+        <Box margin={5} paddingTop={1}>
+          <Grid container spacing={2} >
+            <Grid item xs='12' sm='4' xl='2'>
+              <img src={dadosPlataforma && dadosPlataforma.imagem} alt="imagem" style={{maxWidth: '100%'}}/>
+            </Grid>
+            <Grid item container xs='6' alignItems='flex-start' >
+              <Grid item xs='12'>
+                <Box marginLeft={4} paddingTop={2}>
+                  <Typography variant='h2'>{dadosPlataforma && dadosPlataforma.nome}</Typography>
+                </Box>
+              </Grid>
+              <Grid item xs='12'>
+                <Link href="#" onClick={() => setModalAvaliacoesVisible(true)} >
+                  <Box marginLeft={4}>
+                    <Grid item>
+                      <Typography variant={'h3'} component='span'> {dadosPlataforma && dadosPlataforma.notaGeral} </Typography>
+                      <Typography variant={'h6'} component='span'> Média geral </Typography>
+                    </Grid>
+                    <Grid item>
+                      {dadosPlataforma && dadosPlataforma.notaGeral && <Rating  value={dadosPlataforma.notaGeral} readOnly />}
+                    </Grid>
+                    <Grid item>
+                      <Typography variant={'h6'}> {dadosPlataforma && dadosPlataforma.numeroAvaliacoes} avaliações efetuadas</Typography>
+                    </Grid>
+                  </Box>
+                </Link>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
+
         <Button onClick={() => setModalAvaliacoesVisible(true)}>
           Abrir modal de avaliações
         </Button>
