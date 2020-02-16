@@ -4,7 +4,7 @@ import BarraAvaliacoes from './BarraAvaliacoes';
 import NotaGeral from './NotaGeral';
 import Comentario from './Comentario';
 
-export default function ModalComentarios(props){
+export default function ModalAvaliacoes(props){
 
 const [tabIndex, setTabIndex] = useState(0)
 

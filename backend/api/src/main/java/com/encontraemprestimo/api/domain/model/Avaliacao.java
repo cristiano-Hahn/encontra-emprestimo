@@ -18,8 +18,7 @@ public class Avaliacao {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotEmpty
-    @Column(name = "nome_usuario", nullable = false)
+    @Column(name = "nome_usuario")
     private String nomeUsuario;
 
     @NotNull
