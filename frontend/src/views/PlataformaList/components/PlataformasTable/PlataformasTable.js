@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { makeStyles } from '@material-ui/styles';
 import {
@@ -13,7 +12,8 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TablePagination
+  TablePagination,
+  Link
 } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 
@@ -39,7 +39,6 @@ const useStyles = makeStyles(theme => ({
 
 const PlataformasTable = props => {
   const { className, plataformas, ...rest } = props;
-  console.log(plataformas)
 
   const classes = useStyles();
 
@@ -69,6 +68,7 @@ const PlataformasTable = props => {
                 <TableRow>
                   <TableCell>Name</TableCell>
                   <TableCell>Avaliação geral</TableCell>
+                  <TableCell>Ações</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -86,6 +86,11 @@ const PlataformasTable = props => {
                     </TableCell>
                     <TableCell>
                       <Rating value={plataforma.notaGeral} />
+                    </TableCell>
+                    <TableCell>
+                    <Link href={plataforma.endereco_online} >
+                      Ver detalhes
+                    </Link>
                     </TableCell>
                   </TableRow>
                 ))}
