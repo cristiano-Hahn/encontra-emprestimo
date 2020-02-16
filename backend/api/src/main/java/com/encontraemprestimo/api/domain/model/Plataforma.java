@@ -47,7 +47,6 @@ public class Plataforma {
     @Column(name = "data_cadastro")
     private Date dataCadastro;
 
-    @Size(min = 0, max = 5)
     @Column(name = "nota_geral")
     private Float notaGeral;
 
