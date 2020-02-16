@@ -15,7 +15,7 @@ import java.util.Date;
 public class Avaliacao {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -26,7 +26,6 @@ public class Avaliacao {
     @Column(name = "nota", nullable = false)
     private Float nota;
 
-    @NotNull
     @Temporal(TemporalType.DATE)
     @Column(name = "data", nullable = false)
     private Date data;

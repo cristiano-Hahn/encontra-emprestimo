@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Box, Grid, Typography, Link } from '@material-ui/core'
 import ModalAvaliacoes from './ModalAvaliacoes'
-import {
-  useParams
-} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Axios from 'axios';
 import ModalAvaliar from './ModalAvaliar';
 import { API_URL } from 'common/api';
@@ -19,13 +17,16 @@ export default function PlataformaDetalhes (props) {
     const [avaliacoes, setAvaliacoes] = useState(null)
 
     useEffect(() => {
-      Axios.get(`${API_URL}/plataformas/${plataformaId}`).then(e =>{
-        setDadosPlataforma(e.data)
-        console.log(e.data)
-        buscarAvaliacoes()
-      })
+      buscarPlataformas()
     // eslint-disable-next-line
     }, [])
+
+    function buscarPlataformas(){
+      Axios.get(`${API_URL}/plataformas/${plataformaId}`).then(e =>{
+        setDadosPlataforma(e.data)
+        buscarAvaliacoes()
+      })
+    }
 
     function buscarAvaliacoes(){
       Axios.get(`${API_URL}/plataformas/${plataformaId}/avaliacoes`).then(e =>{
@@ -36,7 +37,7 @@ export default function PlataformaDetalhes (props) {
     function handleCloseModalAvaliar(avaliou){
       setModalAvaliarVisible(false)
       if(avaliou){
-        buscarAvaliacoes()
+        buscarPlataformas()
       }
     }
 
@@ -56,7 +57,7 @@ export default function PlataformaDetalhes (props) {
 
         <Box margin={5} paddingTop={1}>
           <Grid container spacing={2} >
-            <Grid item xs='12' sm='4' xl='2'>
+            <Grid item xs='12' sm='4' xl='3'>
               <img src={dadosPlataforma && dadosPlataforma.imagem} alt="imagem" style={{maxWidth: '100%'}}/>
             </Grid>
             <Grid item container xs='6' alignItems='flex-start' >
@@ -80,6 +81,15 @@ export default function PlataformaDetalhes (props) {
                     </Grid>
                   </Box>
                 </Link>
+                <Box marginLeft={4} marginTop={2}>
+                  <Grid item container alignItems='flex-end' >
+                    <Grid item>
+                    <Link href={dadosPlataforma && dadosPlataforma.enderecoOnline} target="_blank" rel="noopener" rel="noreferrer">
+                      <Button variant='contained' color='primary'>Visitar o site</Button>
+                    </Link>
+                    </Grid>
+                  </Grid>
+                </Box>
               </Grid>
             </Grid>
           </Grid>

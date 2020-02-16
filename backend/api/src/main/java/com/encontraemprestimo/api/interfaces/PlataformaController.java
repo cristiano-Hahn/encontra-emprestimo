@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -37,7 +38,19 @@ public class PlataformaController {
     @PostMapping("/plataformas/{id}/avaliacoes")
     public Avaliacao criarAvaliacao(@PathVariable("id") Integer plataformaId,
                                     @Valid @RequestBody Avaliacao avaliacao) {
-        avaliacao.setPlataforma(plataformaRepository.getOne(plataformaId));
-        return avaliacaoRepository.save(avaliacao);
+        Plataforma plataforma = plataformaRepository.getOne(plataformaId);
+        avaliacao.setPlataforma(plataforma);
+        avaliacao.setData(new Date());
+        Avaliacao avaloacaoSalva = avaliacaoRepository.save(avaliacao);
+
+        List<Avaliacao> avaliacoesDaPlataforma = avaliacaoRepository.findByPlataformaId(plataformaId);
+        Float somaNotas = 0f;
+        for(Avaliacao item: avaliacoesDaPlataforma){
+            somaNotas += item.getNota();
+        }
+        plataforma.setNumeroAvaliacoes(avaliacoesDaPlataforma.size());
+        plataforma.setNotaGeral(somaNotas / avaliacoesDaPlataforma.size());
+        plataformaRepository.save(plataforma);
+        return avaloacaoSalva;
     }
 }
