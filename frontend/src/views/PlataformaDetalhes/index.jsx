@@ -6,6 +6,7 @@ import Axios from 'axios';
 import ModalAvaliar from './ModalAvaliar';
 import { API_URL } from 'common/api';
 import Rating from '@material-ui/lab/Rating';
+import DetalheTabela from './DetalheTabela';
 
 
 export default function PlataformaDetalhes (props) {
@@ -13,7 +14,7 @@ export default function PlataformaDetalhes (props) {
     const { plataformaId } = useParams();
     const [modalAvaliacoesVisible, setModalAvaliacoesVisible] = useState(false)
     const [modalAvaliarVisible, setModalAvaliarVisible] = useState(false)
-    const [dadosPlataforma, setDadosPlataforma] = useState(null);
+    const [dadosPlataforma, setDadosPlataforma] = useState({});
     const [avaliacoes, setAvaliacoes] = useState(null)
 
     useEffect(() => {
@@ -66,41 +67,62 @@ export default function PlataformaDetalhes (props) {
                   <Typography variant='h2'>{dadosPlataforma && dadosPlataforma.nome}</Typography>
                 </Box>
               </Grid>
-              <Grid item xs='12'>
-                <Link href="#" onClick={() => setModalAvaliacoesVisible(true)} >
-                  <Box marginLeft={4}>
-                    <Grid item>
-                      <Typography variant={'h3'} component='span'> {dadosPlataforma && dadosPlataforma.notaGeral} </Typography>
-                      <Typography variant={'h6'} component='span'> Média geral </Typography>
-                    </Grid>
-                    <Grid item>
-                      {dadosPlataforma && dadosPlataforma.notaGeral && <Rating  value={dadosPlataforma.notaGeral} readOnly />}
-                    </Grid>
-                    <Grid item>
-                      <Typography variant={'h6'}> {dadosPlataforma && dadosPlataforma.numeroAvaliacoes} avaliações efetuadas</Typography>
-                    </Grid>
+            <Grid item xs='12'>
+              <Box marginLeft={4}>
+                <Grid item>
+                  <Typography variant={'h3'} component='span'> {dadosPlataforma && dadosPlataforma.notaGeral} </Typography>
+                  <Typography variant={'h6'} component='span'> Média geral </Typography>
+                  <Box component='span' marginLeft={1}marginBottom={-1}>
+                    <Button variant='text' color='primary' onClick={() =>setModalAvaliacoesVisible(true)}>Ver avaliações</Button>
                   </Box>
-                </Link>
-                <Box marginLeft={4} marginTop={2}>
-                  <Grid item container alignItems='flex-end' >
-                    <Grid item>
+                </Grid>
+                <Grid item>
+                  {dadosPlataforma && dadosPlataforma.notaGeral && <Rating  value={dadosPlataforma.notaGeral} readOnly />}
+                </Grid>
+                <Grid item>
+                  <Typography variant={'h6'}> {dadosPlataforma && dadosPlataforma.numeroAvaliacoes} avaliações efetuadas</Typography>
+                </Grid>
+              </Box>
+              <Box marginLeft={4} marginTop={2}>
+                <Grid item container alignItems='flex-end' >
+                  <Grid item>
                     <Link href={dadosPlataforma && dadosPlataforma.enderecoOnline} target="_blank" rel="noopener" rel="noreferrer">
-                      <Button variant='contained' color='primary'>Visitar o site</Button>
+                      <Button variant='contained' color='default'>Visitar o site</Button>
                     </Link>
-                    </Grid>
+                    <Box component='span' marginLeft={1}>
+                      <Link href={dadosPlataforma && dadosPlataforma.enderecoOnline} target="_blank" rel="noopener" rel="noreferrer">
+                        <Button variant='contained' color='primary'>Realizar sua avaliação</Button>
+                      </Link>
+                    </Box>
                   </Grid>
-                </Box>
+                </Grid>
+              </Box>
               </Grid>
             </Grid>
           </Grid>
         </Box>
+        <Box>
+        <Box paddingTop={2} paddingBottom={1}>
+          <Typography variant='h3'>Mais detalhes da plataforma</Typography>
+        </Box>
+        <Grid>
+          <DetalheTabela titulo='Razão social' valor={dadosPlataforma.razaoSocial} />
+          <DetalheTabela titulo='CNPJ' valor={dadosPlataforma.cnpj} />
 
-        <Button onClick={() => setModalAvaliacoesVisible(true)}>
-          Abrir modal de avaliações
-        </Button>
-        <Button onClick={() => setModalAvaliarVisible(true)}>
-          Abrir modal de avaliar
-        </Button>
+          <DetalheTabela titulo='CNPJ verificado pela nossa equipe' valor={dadosPlataforma.cnpjVerificado ? "Sim": "Não"} />
+          <DetalheTabela titulo='Telefone comercial' valor={dadosPlataforma.telefoneComercial} />
+          <DetalheTabela titulo='Telefone verificado pela nossa equipe' valor={dadosPlataforma.telefoneComercialVerificado ? "Sim": "Não"} />
+          <DetalheTabela titulo='Site oficial' valor={dadosPlataforma.enderecoOnline} />
+          <DetalheTabela titulo='Data de fundação' valor={dadosPlataforma.dataCadastro} />
+          <DetalheTabela titulo='Quantidade de reclamações' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.quantidadeReclamacoes} />
+          <DetalheTabela titulo='Reclamações respondidas' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.reclamacoesRespondidas + " %"}/>
+          <DetalheTabela titulo='Índice de solução' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.voltariaFazerNegocio + " %"}/>
+          <DetalheTabela titulo='Voltaria a fazer negócio' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.indiceSolucao + " %"}/>
+          <DetalheTabela titulo='Nota do consumidor' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.notaConsumidor}/>
+          <DetalheTabela titulo='Nota geral da plataforma' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.notaGeral}/>
+
+        </Grid>
+        </Box>
       </div>
     )
 }
