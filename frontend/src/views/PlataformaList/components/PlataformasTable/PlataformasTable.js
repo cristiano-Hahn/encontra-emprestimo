@@ -69,10 +69,6 @@ const PlataformasTable = props => {
                                         selected={selectedplataformas.indexOf(plataforma.id) !== -1}
                                     >
                                         <TableCell>
-                                            {/* <div className={classes.nameContainer}> 
-                                                {plataforma.nome}
-                                            </div>*/}
-
                                             <div className={classes.nameContainer}>
                                                 <Avatar
                                                     className={classes.avatar}
@@ -82,11 +78,7 @@ const PlataformasTable = props => {
                                                 </Avatar>
                                                 <Typography variant="body1">{plataforma.nome}</Typography>
                                             </div>
-
                                         </TableCell>
-
-
-
                                         <TableCell>
                                             <Rating readOnly value={plataforma.notaGeral} />
                                         </TableCell>
