@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Dialog, DialogTitle, DialogContent, Button, DialogActions, Typography, Grid, Tabs, Tab, Box } from "@material-ui/core";
 import BarraAvaliacoes from './BarraAvaliacoes';
 import NotaGeral from './NotaGeral';
-import Comentario from './Comentario';
+import Avaliacao from './Avaliacao';
 
 export default function ModalAvaliacoes(props){
 
@@ -26,21 +26,21 @@ function buscarPercentualAvaliacoes(nota){
 
 function montarAvaliacoesTodas(){
   return avaliacoes.map(e => {
-    return <Comentario value={tabIndex} tabIndex={0} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
+    return <Avaliacao value={tabIndex} tabIndex={0} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
   })
 }
 
 function montarAvaliacoesPositivas(){
   const avaliacoesFiltradas = avaliacoes.filter(e => e.recomenda === "SIM")
   return avaliacoesFiltradas.map(e => {
-    return <Comentario value={tabIndex} tabIndex={1} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
+    return <Avaliacao value={tabIndex} tabIndex={1} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
   })
 }
 
 function montarAvaliacoesNegativas(){
   const avaliacoesFiltradas = avaliacoes.filter(e => e.recomenda === "NAO")
   return avaliacoesFiltradas.map(e => {
-    return <Comentario value={tabIndex} tabIndex={2} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
+    return <Avaliacao value={tabIndex} tabIndex={2} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
   })
 }
 

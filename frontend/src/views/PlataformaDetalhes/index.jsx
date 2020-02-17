@@ -7,6 +7,7 @@ import ModalAvaliar from './ModalAvaliar';
 import { API_URL } from 'common/api';
 import Rating from '@material-ui/lab/Rating';
 import DetalheTabela from './DetalheTabela';
+import Avaliacao from './ModalAvaliacoes/Avaliacao';
 
 
 export default function PlataformaDetalhes (props) {
@@ -103,7 +104,7 @@ export default function PlataformaDetalhes (props) {
         </Box>
         <Box>
         <Box paddingTop={2} paddingBottom={1}>
-          <Typography variant='h3'>Mais detalhes da plataforma</Typography>
+          <Typography variant='h4'>Mais detalhes da plataforma</Typography>
         </Box>
         <Grid>
           <DetalheTabela titulo='Razão social' valor={dadosPlataforma.razaoSocial} />
@@ -122,7 +123,19 @@ export default function PlataformaDetalhes (props) {
           <DetalheTabela titulo='Nota geral da plataforma' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.notaGeral}/>
 
         </Grid>
+        <Box paddingTop={5} paddingBottom={1}>
+          <Typography variant='h4'>Últimas avaliações</Typography>
         </Box>
+        <Box margin={4}>
+          <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
+        </Box>
+        <Box margin={4}>
+          <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
+        </Box>
+        <Box margin={4}>
+          <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
+        </Box>
+      </Box>
       </div>
     )
 }
