@@ -10,7 +10,9 @@ import {
     TableBody,
     TableCell,
     TableHead,
-    TableRow
+    TableRow,
+    Avatar,
+    Typography
 } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -67,15 +69,29 @@ const PlataformasTable = props => {
                                         selected={selectedplataformas.indexOf(plataforma.id) !== -1}
                                     >
                                         <TableCell>
-                                            <div className={classes.nameContainer}>
+                                            {/* <div className={classes.nameContainer}> 
                                                 {plataforma.nome}
+                                            </div>*/}
+
+                                            <div className={classes.nameContainer}>
+                                                <Avatar
+                                                    className={classes.avatar}
+                                                    src={plataforma.imagem}
+                                                >
+                                                    {plataforma.nome}
+                                                </Avatar>
+                                                <Typography variant="body1">{plataforma.nome}</Typography>
                                             </div>
+
                                         </TableCell>
+
+
+
                                         <TableCell>
                                             <Rating readOnly value={plataforma.notaGeral} />
                                         </TableCell>
                                         <TableCell>
-                                            <Link to={"/plataformas/" + plataforma.id+ "/detalhes"}  className="btn">Ver detalhes</Link>
+                                            <Link to={"/plataformas/" + plataforma.id + "/detalhes"} className="btn">Ver detalhes</Link>
                                         </TableCell>
                                     </TableRow>
                                 ))}
