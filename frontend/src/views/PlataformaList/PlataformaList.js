@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import {makeStyles} from '@material-ui/styles';
+import React, { useEffect, useState } from 'react'
+import { makeStyles } from '@material-ui/styles';
 import Axios from 'axios';
-import {API_URL} from 'common/api';
+import { API_URL } from 'common/api';
 
-import {PlataformasTable} from './components';
+import { PlataformasTable } from './components';
 import Grid from "@material-ui/core/Grid";
 import logomarca from "./images/logomarca.png";
 import Typography from "@material-ui/core/Typography";
+import { SearchInput } from 'components';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,16 +30,25 @@ const useStyles = makeStyles(theme => ({
         maxWidth: '100%',
         maxHeight: '100%',
     },
+    searchInput: {
+        marginTop: theme.spacing(5),
+        marginBottom: theme.spacing(3)
+    }
 }));
+
+
 
 export default function PlataformaList() {
     const classes = useStyles();
 
     const [plataformas, setPlataformas] = useState([]);
+    const [plataformasFiltradas, setPlataformasFiltradas] = useState([]);
+    const [filtro, setFiltro] = useState('');
 
     useEffect(() => {
         Axios.get(`${API_URL}/plataformas/`).then(e => {
             setPlataformas(e.data)
+            setPlataformasFiltradas(e.data)
         })
         // eslint-disable-next-line
     }, []);
@@ -53,11 +63,25 @@ export default function PlataformaList() {
         }
     };
 
+
+    function onChangePesquisa(value) {
+        setFiltro(value)
+
+        if (value === '') {
+            setPlataformasFiltradas(plataformas)
+        } else {
+            setPlataformasFiltradas(plataformas.filter((item) => {
+                var nome = item.nome.toUpperCase();
+                return nome.includes(value.toUpperCase())
+            }));
+        }
+    }
+
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>
                 <Grid item className={classes.image}>
-                    <img className={classes.img} alt="complex" src={logomarca}/>
+                    <img className={classes.img} alt="complex" src={logomarca} />
                 </Grid>
                 <Grid item xs={12} sm container className={classes.details}>
                     <Typography gutterBottom variant="h3">
@@ -71,8 +95,18 @@ export default function PlataformaList() {
                     </Typography>
                 </Grid>
             </Grid>
+            <Grid>
+                <SearchInput
+                    className={classes.searchInput}
+                    placeholder="Buscar plataformas"
+                    value={filtro}
+                    onChange={(e) => {
+                        onChangePesquisa(e.target.value || "")
+                    }}
+                />
+            </Grid>
             <div className={classes.content}>
-                <PlataformasTable plataformas={plataformas}/>
+                <PlataformasTable plataformas={plataformasFiltradas} />
             </div>
         </div>
     );
