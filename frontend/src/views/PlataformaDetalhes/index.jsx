@@ -9,7 +9,6 @@ import Rating from '@material-ui/lab/Rating';
 import DetalheTabela from './DetalheTabela';
 import Avaliacao from './ModalAvaliacoes/Avaliacao';
 import ResumoAvaliacoes from './ModalAvaliacoes/ResumoAvaliacoes';
-import moment from 'moment';
 
 
 export default function PlataformaDetalhes (props) {
@@ -76,7 +75,7 @@ export default function PlataformaDetalhes (props) {
                   <Typography variant={'h3'} component='span'> {dadosPlataforma && dadosPlataforma.notaGeral} </Typography>
                   <Typography variant={'h6'} component='span'> Média geral </Typography>
                   <Box component='span' marginLeft={1}marginBottom={-1}>
-                    <Button variant='text' color='primary' onClick={() =>setModalAvaliacoesVisible(true)}>Ver avaliações</Button>
+                    <Button variant='contained' size='small' color='default' onClick={() =>setModalAvaliacoesVisible(true)}>Ver avaliações</Button>
                   </Box>
                 </Grid>
                 <Grid item>
@@ -131,7 +130,7 @@ export default function PlataformaDetalhes (props) {
               <ResumoAvaliacoes avaliacoes={avaliacoes} dadosPlataforma={dadosPlataforma} />
             </Grid>
             <Grid item sm='6' >
-              <Button color='default' variant='text' onClick={() => setModalAvaliacoesVisible(true)}>Visualizar avaliações</Button>
+              <Button color='default' variant='contained' onClick={() => setModalAvaliacoesVisible(true)}>Ver avaliações</Button>
             </Grid>
           </Grid>
         </Box>
