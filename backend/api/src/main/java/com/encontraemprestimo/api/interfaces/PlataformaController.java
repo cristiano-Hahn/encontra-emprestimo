@@ -32,7 +32,7 @@ public class PlataformaController {
 
     @GetMapping("/plataformas/{id}/avaliacoes")
     public List<Avaliacao> buscarAvaliacoes(@PathVariable("id") Integer plataformaId) {
-        return avaliacaoRepository.findByPlataformaId(plataformaId);
+        return avaliacaoRepository.findByPlataformaIdOrderByDataDesc(plataformaId);
     }
 
     @PostMapping("/plataformas/{id}/avaliacoes")
@@ -43,7 +43,7 @@ public class PlataformaController {
         avaliacao.setData(new Date());
         Avaliacao avaloacaoSalva = avaliacaoRepository.save(avaliacao);
 
-        List<Avaliacao> avaliacoesDaPlataforma = avaliacaoRepository.findByPlataformaId(plataformaId);
+        List<Avaliacao> avaliacoesDaPlataforma = avaliacaoRepository.findByPlataformaIdOrderByDataDesc(plataformaId);
         Float somaNotas = 0f;
         for(Avaliacao item: avaliacoesDaPlataforma){
             somaNotas += item.getNota();

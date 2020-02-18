@@ -27,21 +27,21 @@ function buscarPercentualAvaliacoes(nota){
 
 function montarAvaliacoesTodas(){
   return avaliacoes.map(e => {
-    return <Avaliacao value={tabIndex} tabIndex={0} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
+    return <Avaliacao value={tabIndex} tabIndex={0} data="01/01/2009" nota={e.nota} descricao={e.comentario} data={e.data}/>
   })
 }
 
 function montarAvaliacoesPositivas(){
   const avaliacoesFiltradas = avaliacoes.filter(e => e.recomenda === "SIM")
   return avaliacoesFiltradas.map(e => {
-    return <Avaliacao value={tabIndex} tabIndex={1} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
+    return <Avaliacao value={tabIndex} tabIndex={1} data="01/01/2009" nota={e.nota} descricao={e.comentario} data={e.data}/>
   })
 }
 
 function montarAvaliacoesNegativas(){
   const avaliacoesFiltradas = avaliacoes.filter(e => e.recomenda === "NAO")
   return avaliacoesFiltradas.map(e => {
-    return <Avaliacao value={tabIndex} tabIndex={2} data="01/01/2009" nota={e.nota} descricao={e.comentario}/>
+    return <Avaliacao value={tabIndex} tabIndex={2} data="01/01/2009" nota={e.nota} descricao={e.comentario} data={e.data}/>
   })
 }
 

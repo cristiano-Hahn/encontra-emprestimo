@@ -9,6 +9,7 @@ import Rating from '@material-ui/lab/Rating';
 import DetalheTabela from './DetalheTabela';
 import Avaliacao from './ModalAvaliacoes/Avaliacao';
 import ResumoAvaliacoes from './ModalAvaliacoes/ResumoAvaliacoes';
+import moment from 'moment';
 
 
 export default function PlataformaDetalhes (props) {
@@ -92,9 +93,7 @@ export default function PlataformaDetalhes (props) {
                       <Button variant='contained' color='default'>Visitar o site</Button>
                     </Link>
                     <Box component='span' marginLeft={1}>
-                      <Link href={dadosPlataforma && dadosPlataforma.enderecoOnline} target="_blank" rel="noopener" rel="noreferrer">
-                        <Button variant='contained' color='primary'>Realizar sua avaliação</Button>
-                      </Link>
+                      <Button variant='contained' color='primary' onClick={() => setModalAvaliarVisible(true)}>Realizar sua avaliação</Button>
                     </Box>
                   </Grid>
                 </Grid>
@@ -110,7 +109,6 @@ export default function PlataformaDetalhes (props) {
         <Grid>
           <DetalheTabela titulo='Razão social' valor={dadosPlataforma.razaoSocial} />
           <DetalheTabela titulo='CNPJ' valor={dadosPlataforma.cnpj} />
-
           <DetalheTabela titulo='CNPJ verificado pela nossa equipe' valor={dadosPlataforma.cnpjVerificado ? "Sim": "Não"} />
           <DetalheTabela titulo='Telefone comercial' valor={dadosPlataforma.telefoneComercial} />
           <DetalheTabela titulo='Telefone verificado pela nossa equipe' valor={dadosPlataforma.telefoneComercialVerificado ? "Sim": "Não"} />
@@ -129,30 +127,25 @@ export default function PlataformaDetalhes (props) {
         </Box>
         <Box marginTop={3}>
           <Grid container alignItems='flex-end'>
-            <Grid item sm='6'>
+            <Grid item sm='5'>
               <ResumoAvaliacoes avaliacoes={avaliacoes} dadosPlataforma={dadosPlataforma} />
             </Grid>
-            <Grid item sm='6' style={{paddingBottom: '8px'}}>
-              <Button color='primary' variant='contained'>Realizar sua avaliação</Button>
+            <Grid item sm='6' >
+              <Button color='default' variant='text' onClick={() => setModalAvaliacoesVisible(true)}>Visualizar avaliações</Button>
             </Grid>
           </Grid>
         </Box>
         <Box paddingTop={5}>
           <Typography variant='h5'>Últimas avaliações efetuadas</Typography>
         </Box>
-        <Box margin={4} marginTop={0}>
-          <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
-        </Box>
-        <Box margin={4}>
-          <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
-        </Box>
-        <Box margin={4} marginBottom={0}>
-          <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
+
+        <Box marginLeft={4}>
+          {avaliacoes.slice(0, 3).map(avaliacao => {
+            return <Avaliacao data={avaliacao.data} nota={avaliacao.nota} descricao={avaliacao.comentario}/>
+          })}
         </Box>
         <Box marginLeft={5}>
-          <Link onClick={() => setModalAvaliacoesVisible(true)}>
-            <Button margin='dense' size='small'>Visualizar todas as avaliações</Button>
-          </Link>
+            <Button variant='contained' color='primary' onClick={() => setModalAvaliarVisible(true)}>Realizar sua avaliação</Button>
         </Box>
       </Box>
       </div>

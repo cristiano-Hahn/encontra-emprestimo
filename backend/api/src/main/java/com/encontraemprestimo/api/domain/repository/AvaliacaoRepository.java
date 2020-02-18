@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Integer> {
 
-    List<Avaliacao> findByPlataformaId(Integer plataformaId);
+    List<Avaliacao> findByPlataformaIdOrderByDataDesc(Integer plataformaId);
 
 }
