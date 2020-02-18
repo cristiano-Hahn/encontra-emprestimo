@@ -1,7 +1,8 @@
 {
-  "name": "react-material-dashboard",
-  "author": "DeviasIO",
-  "email": "contact@devias.io",
+  "name": "encontra-emprestimo",
+  "author": "MegaMH",
+  "email": "cristianohahn.ch@gmail.com",
+  "homepage": "./",
   "licence": "MIT",
   "version": "0.3.0",
   "private": false,

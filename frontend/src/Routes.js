@@ -28,7 +28,7 @@ const Routes = () => {
         layout={MainLayout}
         path="/plataformas/:plataformaId/detalhes"
       />
-      <Redirect to="/not-found" />
+      <Redirect to="/plataformas" />
     </Switch>
   );
 };
