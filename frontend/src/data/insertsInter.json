@@ -1,0 +1,21 @@
+{
+    "nome": "Banco Inter",
+    "razaoSocial": "Banco intermedium S.A",
+    "cnpj": "00416968000101",
+    "cnpjVerificado": true,
+    "telefoneComercial": "3003-4070",
+    "telefoneComercialVerificado": true,
+    "enderecoOnline": "https://www.bancointer.com.br/",
+    "dataCadastro": "2020-02-17",
+    "notaGeral": 4.8,
+    "numeroAvaliacoes": 0,
+    "reclameAqui": {
+        "quantidadeReclamacoes": 14518,
+        "reclamacoesRespondidas": 14481,
+        "indiceSolucao": 81.6,
+        "voltariaFazerNegocio": 74,
+        "notaConsumidor": 6.62,
+        "notaGeral": 7.9
+    },
+    "imagem": "data:image/png;base64,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"
+}

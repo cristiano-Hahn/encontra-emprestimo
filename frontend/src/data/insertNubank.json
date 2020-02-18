@@ -1,0 +1,21 @@
+{
+    "nome": "Nubank",
+    "razaoSocial": "Nu Pagamentos S.A",
+    "cnpj": "18236120000158",
+    "cnpjVerificado": true,
+    "telefoneComercial": "0800-591-2117",
+    "telefoneComercialVerificado": true,
+    "enderecoOnline": "https://nubank.com.br/",
+    "dataCadastro": "2020-02-17",
+    "notaGeral": 0,
+    "numeroAvaliacoes": 0,
+    "reclameAqui": {
+        "quantidadeReclamacoes": 19262,
+        "reclamacoesRespondidas": 19050,
+        "indiceSolucao": 78.6,
+        "voltariaFazerNegocio": 72.2,
+        "notaConsumidor": 6.82,
+        "notaGeral": 7.8
+    },
+    "imagem": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPsAAADICAMAAAAZQmeXAAAAk1BMVEX////8+f39+/13AJixe8N/EpyQRavhyujGn9Hs3/Gkabnm1ezWu+CMP6jw5fTq2++qc72wf8Kib7f38fmEIKC3iMbXv99uAJPVwd6GKqP27fndzuSGI6OHL6R6AJuLM6OZUrDCnM+8j8qzgsPHpdOgYLXQstqgXra/lM2XT6/Qr9ubY7KqfL3QtdqpcLypabxiAIv1z5raAAAEe0lEQVR4nO3a62KiOAAFYAIE5CJIuXSgA4LcxNnRef+nW0hAtO1s67Yoref7g4TR5kwghBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgPkYi3rsJtWOYid/yseopuXZOrq1KaUEoTKS431q0rc12bZLkJrEhTF05K6cG4dX2uyHgsj3Ets6Rh4d6yOlfl0+Bkj5gpre/lxBfl9flZ7uZU0W5UmSsjq+WzpGRL07vo8MU2uyEScnZ7z+lhOMqdf4e8WvrFWFXmb5pY3vi+v8nM42VOVtKu2xr+ipF3pzl/O7w0D1784NfRdmvU88LQYyhtFsMRNTy0nb3b0JDxvGr8luENpeuve2VkNN6qmq0rgday1U0jrfr2JY7XNqodrrSoY0rO+DWZFqwwyiX1NhX/OFNadnUXx75Oa+i2/7iTii67z3sBg8rj9xaSOXz4qtm1RmH3travs4eyaOn117xNfdJl5+fBd8teSRnbnmYXqoQXCpYnf9/s4ibhQ5qz7Ea84h+ib53dofz0PsuuKTpP+62zkzvOfs/tjuwCsh9L/192912THdFsnn0+M/uv/Xv+4qP50Tp/ls/M/nBy9O+k2Tz2IbuA7MfS8+zGHWd/d7s7AnHffKX1TbPXW73Wd316I8v9Bb/riUGW/+Mv+PQOzx7k0+S5xKdmbwxRtNMDy1g0/m6hx+wQbbamutNDtsOyq94MxkOffM633JRtLNbkGzbL/fiDHc+bbqfLrq1PJv5uZoJ+/ncyju9cNjvQZ7fYP2yzu7U/QZSLTZDdUo7zvIJIn4Rjdr5ts+/fNQCc3BT393Loxyy1eCW7WtTzeMs5RfaHB/aDVVmvtt6L7MlBmcl8/mTZo3TfFos/X2aXm5m84nwz++ry7L/y7udW3X2evMwuBdVMGv6idre8evzmkP040zv2dTtBeEpYvlezC346i2f4i7K7ijdWeshOGq/vuvrsQXeP+5Hwg69md8t8Dqu53pPdWst8T8yk8fY1ZF9I/Vx+P7YhZbev/ld2IYqLifJc4jhHLT7LzhuGZSfKcIFaKc2GlufZSUaV4Z31Q2lFkV2W3WmgLdn/zCt9HRvTGj9nMLAjjqS6HasfbjOaUlusVO2yCzodDtmSJ5t2977WyujO0lTZG5eqPB3StFEyfgVUYWFYdpF02f/0j25/uux8zmqXzGBAX9C10lnSw9j7unu6ZKVr2r2YC2g6HLH1kIZrpt3Enlef3LDE01UYmqzXe58dHRZzsG2/M4flGm621xnZPim1HV6os1Yk5bHhBVHNfKeVp57u5NtgBhE+wOXOQ5C+lDeSGi9PFmGxRTbilprkLhbfVonyfJ3lgs5msnliGV0+65y2dDaTT1Mrwjg/e/zae/ez4lYt6Tozhl6BVGE5jyfRq4iKWAqdLLCtSKucMH66dYWuiuz0NaVhvI6pV9/PGd8TbTPz5VWeBXd0wp/48ktoAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBt/wLpdV/W+uWVBAAAAABJRU5ErkJggg=="
+}

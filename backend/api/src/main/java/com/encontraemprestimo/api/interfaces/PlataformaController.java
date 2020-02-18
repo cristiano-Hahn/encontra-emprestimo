@@ -35,6 +35,11 @@ public class PlataformaController {
         return avaliacaoRepository.findByPlataformaIdOrderByDataDesc(plataformaId);
     }
 
+    @PostMapping("/plataformas")
+    public Plataforma inserirPlataforma( @RequestBody Plataforma plataforma){
+        return plataformaRepository.save(plataforma);
+    }
+
     @PostMapping("/plataformas/{id}/avaliacoes")
     public Avaliacao criarAvaliacao(@PathVariable("id") Integer plataformaId,
                                     @Valid @RequestBody Avaliacao avaliacao) {
