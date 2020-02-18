@@ -8,6 +8,7 @@ import { API_URL } from 'common/api';
 import Rating from '@material-ui/lab/Rating';
 import DetalheTabela from './DetalheTabela';
 import Avaliacao from './ModalAvaliacoes/Avaliacao';
+import ResumoAvaliacoes from './ModalAvaliacoes/ResumoAvaliacoes';
 
 
 export default function PlataformaDetalhes (props) {
@@ -16,7 +17,7 @@ export default function PlataformaDetalhes (props) {
     const [modalAvaliacoesVisible, setModalAvaliacoesVisible] = useState(false)
     const [modalAvaliarVisible, setModalAvaliarVisible] = useState(false)
     const [dadosPlataforma, setDadosPlataforma] = useState({});
-    const [avaliacoes, setAvaliacoes] = useState(null)
+    const [avaliacoes, setAvaliacoes] = useState([])
 
     useEffect(() => {
       buscarPlataformas()
@@ -123,17 +124,35 @@ export default function PlataformaDetalhes (props) {
           <DetalheTabela titulo='Nota geral da plataforma' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.notaGeral}/>
 
         </Grid>
-        <Box paddingTop={5} paddingBottom={1}>
-          <Typography variant='h4'>Últimas avaliações</Typography>
+        <Box paddingTop={5}>
+          <Typography variant='h4'>Avaliações dos usuários</Typography>
         </Box>
-        <Box margin={4}>
+        <Box marginTop={3}>
+          <Grid container alignItems='flex-end'>
+            <Grid item sm='6'>
+              <ResumoAvaliacoes avaliacoes={avaliacoes} dadosPlataforma={dadosPlataforma} />
+            </Grid>
+            <Grid item sm='6' style={{paddingBottom: '8px'}}>
+              <Button color='primary' variant='contained'>Realizar sua avaliação</Button>
+            </Grid>
+          </Grid>
+        </Box>
+        <Box paddingTop={5}>
+          <Typography variant='h5'>Últimas avaliações efetuadas</Typography>
+        </Box>
+        <Box margin={4} marginTop={0}>
           <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
         </Box>
         <Box margin={4}>
           <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
         </Box>
-        <Box margin={4}>
+        <Box margin={4} marginBottom={0}>
           <Avaliacao data="01/01/2009" nota={4} descricao={"Não gostei"}/>
+        </Box>
+        <Box marginLeft={5}>
+          <Link onClick={() => setModalAvaliacoesVisible(true)}>
+            <Button margin='dense' size='small'>Visualizar todas as avaliações</Button>
+          </Link>
         </Box>
       </Box>
       </div>
