@@ -5,7 +5,7 @@ import { API_URL } from 'common/api';
 
 import { PlataformasTable } from './components';
 import Grid from "@material-ui/core/Grid";
-import logomarca from "./images/logomarca.png";
+import logomarca from "./images/logomarca.svg";
 import Typography from "@material-ui/core/Typography";
 import { SearchInput } from 'components';
 
@@ -83,12 +83,12 @@ export default function PlataformaList() {
                 <Grid item className={classes.image}>
                     <img className={classes.img} alt="complex" src={logomarca} />
                 </Grid>
-                <Grid item xs={12} sm container className={classes.details}>
+                <Grid item xs={6} sm container className={classes.details}>
                     <Typography gutterBottom variant="h3">
                         Evite dores de cabeça. Veja a reputação das principais plataformas de empréstimo sem
                         expor suas informações pessoais.
                     </Typography>
-                    <Typography variant="subtitle1" gutterBottom>
+                    <Typography variant="h6" gutterBottom>
                         Pesquise em mais de {plataformas.length} plataformas, navegue em mais
                         de {calcularNumeroAvaliacoes()} avaliações e escolha o
                         melhor negócio para você.
