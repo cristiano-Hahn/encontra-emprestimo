@@ -60,10 +60,10 @@ export default function PlataformaDetalhes (props) {
 
         <Box margin={5} paddingTop={1}>
           <Grid container spacing={2} >
-            <Grid item xs='12' sm='4' xl='3'>
+            <Grid item xs='12' sm='3' xl='3'>
               <img src={dadosPlataforma && dadosPlataforma.imagem} alt="imagem" style={{maxWidth: '100%'}}/>
             </Grid>
-            <Grid item container xs='6' alignItems='flex-start' >
+            <Grid item container xs='9' alignItems='flex-start' >
               <Grid item xs='12'>
                 <Box marginLeft={4} paddingTop={2}>
                   <Typography variant='h2'>{dadosPlataforma && dadosPlataforma.nome}</Typography>
@@ -72,14 +72,14 @@ export default function PlataformaDetalhes (props) {
             <Grid item xs='12'>
               <Box marginLeft={4}>
                 <Grid item>
-                  <Typography variant={'h3'} component='span'> {dadosPlataforma && dadosPlataforma.notaGeral} </Typography>
+                  <Typography variant={'h3'} component='span'> {dadosPlataforma && dadosPlataforma.notaGeral && dadosPlataforma.notaGeral.toFixed(1)} </Typography>
                   <Typography variant={'h6'} component='span'> Média geral </Typography>
                   <Box component='span' marginLeft={1}marginBottom={-1}>
                     <Button variant='contained' size='small' color='default' onClick={() =>setModalAvaliacoesVisible(true)}>Ver avaliações</Button>
                   </Box>
                 </Grid>
                 <Grid item>
-                  {dadosPlataforma && dadosPlataforma.notaGeral && <Rating  value={dadosPlataforma.notaGeral} readOnly />}
+                  {dadosPlataforma && dadosPlataforma.notaGeral && <Rating  value={dadosPlataforma.notaGeral.toFixed(2)} readOnly />}
                 </Grid>
                 <Grid item>
                   <Typography variant={'h6'}> {dadosPlataforma && dadosPlataforma.numeroAvaliacoes} avaliações efetuadas</Typography>
@@ -92,7 +92,7 @@ export default function PlataformaDetalhes (props) {
                       <Button variant='contained' color='default'>Visitar o site</Button>
                     </Link>
                     <Box component='span' marginLeft={1}>
-                      <Button variant='contained' color='primary' onClick={() => setModalAvaliarVisible(true)}>Realizar sua avaliação</Button>
+                      <Button variant='contained' color='primary' onClick={() => setModalAvaliarVisible(true)}>Realizar avaliação</Button>
                     </Box>
                   </Grid>
                 </Grid>
@@ -126,10 +126,10 @@ export default function PlataformaDetalhes (props) {
         </Box>
         <Box marginTop={3}>
           <Grid container alignItems='flex-end'>
-            <Grid item sm='5'>
+            <Grid item sm='7'>
               <ResumoAvaliacoes avaliacoes={avaliacoes} dadosPlataforma={dadosPlataforma} />
             </Grid>
-            <Grid item sm='6' >
+            <Grid item sm='5' >
               <Button color='default' variant='contained' onClick={() => setModalAvaliacoesVisible(true)}>Ver avaliações</Button>
             </Grid>
           </Grid>
