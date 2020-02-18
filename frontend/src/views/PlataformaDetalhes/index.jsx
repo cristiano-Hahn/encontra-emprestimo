@@ -114,7 +114,7 @@ export default function PlataformaDetalhes (props) {
           <DetalheTabela titulo='Site oficial' valor={dadosPlataforma.enderecoOnline} />
           <DetalheTabela titulo='Data de fundação' valor={dadosPlataforma.dataCadastro} />
           <DetalheTabela titulo='Quantidade de reclamações' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.quantidadeReclamacoes} />
-          <DetalheTabela titulo='Reclamações respondidas' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.reclamacoesRespondidas + " %"}/>
+          <DetalheTabela titulo='Reclamações respondidas' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.reclamacoesRespondidas}/>
           <DetalheTabela titulo='Índice de solução' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.voltariaFazerNegocio + " %"}/>
           <DetalheTabela titulo='Voltaria a fazer negócio' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.indiceSolucao + " %"}/>
           <DetalheTabela titulo='Nota do consumidor' valor={dadosPlataforma.reclameAqui && dadosPlataforma.reclameAqui.notaConsumidor}/>
